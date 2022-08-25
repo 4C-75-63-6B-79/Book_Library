@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Library</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <button id="add-book-btn">Add Book</button>
+        <form>
+            <div>
+                <label for="book-name">Book Name </label>
+                <input type="text" id="book-name" name="bookName" placeholder="Fire and Blood" pattern="^[A-Za-z0-9 ]{8,50}$" minlength="8" maxlength="50" title="Characters in the name of book should be between 8 and 50 and no special characters" required>
+            </div>
+            <div>
+                <label for="author-name">Author Name</label>
+                <input type="text" id="author-name" name="authorName" placeholder="George R. R Martin" pattern="^[A-Za-z .]{8,50}$" minlength="5" maxlength="30" title="Characters in the name of authos should be between 5 and 30 and no number and special characters except '.'" required>
+            </div>
+            <div>
+                <label for="pages">Number Of Pages</label>
+                <input type="number" id="pages" name="numberOfPages" placeholder="203" min="10" max="3500" title="Books can have a minimum of 10 pages and maximum pages of 3500 pages" required>
+            </div>
+            <div>
+                <label for="read-or-not">Have you read the complete book?</label>
+                <input type="checkbox" id="read-or-not" name="readStatus" value="true">
+            </div>
+            <div><button type="submit">Submit</button></div>
+        </form>
+
+        <div id="book-cards">
+
+        </div>
+    </body>
+</html>
