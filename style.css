@@ -3,9 +3,13 @@
 :root {
     --card-bg-color: beige;
     --button-bg-color: coral;
-    --form-bg-color: lightskyblue;
+    --form-bg-color: lightpink;
     --form-after-bg-color: lightgray;
     --padding-value: 10px;
+    --form-not-focus: lightgrey;
+    --form-invalid: red;
+    --form-valid: palegreen;
+    --form-focus: lightskyblue;
 }
 
 
@@ -56,16 +60,55 @@ form {
     background-color: var(--form-bg-color);
     font-size: 1em;
 
-    padding: 0.5em 1.5em;
+    border-radius: 10px;
+
+    padding: calc(var(--padding-value) + 10px);
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
+    gap: 3px;
     z-index: 2;
 
     transform: scale(0);
     /* transition: transform 250ms ease-in; */
+}
+
+form > div:nth-child(-n+4) {
+    align-self: stretch;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+}
+
+form > div > input {
+    padding: 4px;
+    outline: none;
+    border: 2px solid var(--form-not-focus);
+    border-radius: 10px;
+}
+
+form > div > input:focus {
+    border: 2px solid var(--form-focus);
+}
+
+form > div > input:valid {
+    border: 2px solid var(--form-valid);
+}
+
+form > div > input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid var(--form-invalid);
+}
+
+form > div > button { 
+    padding: 0.3em 1em;
+    background-color: lightgrey;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
 }
 
 form::before {
@@ -118,15 +161,12 @@ form::before {
     left: 5%;
     width: 90%;
     height: 90%;
-    /* opacity: .2; */
-    /* background-color: red; */
-    /* z-index: 1; */
     transition: transform 400ms ease-out;
 }
 
 #book-cards > div::before {
-    border-right: 2px solid rgb(255, 255, 255);
-    border-left: 2px solid rgb(255, 255, 255);
+    border-right: 2px solid lightsalmon;
+    border-left: 2px solid lightsalmon;
     transform: scale(1, 0);
 }
 
@@ -135,8 +175,8 @@ form::before {
 }
 
 #book-cards > div::after {
-    border-top: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border-top: 2px solid lightsalmon;
+    border-bottom: 2px solid lightsalmon;
     transform: scale(0, 1);
 }
 
@@ -150,6 +190,8 @@ form::before {
     font-size: 15px;
     border: none;
     border-radius: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 footer {
