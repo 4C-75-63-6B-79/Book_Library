@@ -31,13 +31,22 @@ function addOnScreen(book) {
 function createBookCard(book) {
     let newElement = document.createElement('div');
     newElement.setAttribute("data-book-name",book.title);
-    let p = document.createElement("p");
-    p.textContent = book.info();
+    //---> creating the text elements
+    let h3 = document.createElement("h3");
+    h3.textContent = book.title;
+    let h4_a = document.createElement("h4");
+    h4_a.textContent = book.author;
+    let h4_p = document.createElement("h4");
+    h4_p.textContent = book.pages;
+    //---> creating the buttons
     let remBtn = createRemoveButton(book);
     let readBtn = createReadStatusButton(book);
-    newElement.appendChild(p);
-    newElement.appendChild(remBtn);
+    //---> adding the elements
+    newElement.appendChild(h3);
+    newElement.appendChild(h4_a);
+    newElement.appendChild(h4_p);
     newElement.appendChild(readBtn);
+    newElement.appendChild(remBtn);
     return newElement;
 }
 
@@ -92,6 +101,7 @@ form.addEventListener("submit", inform);
 
 function scaleform100() {
     form.style.transform = 'scale(1)';
+    form.style.transform = 'translate(-50%, -50%)';
     console.log("Add book button pressed");
 }
 
